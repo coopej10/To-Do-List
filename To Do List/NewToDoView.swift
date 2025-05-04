@@ -28,7 +28,9 @@ struct NewToDoView: View {
                 Button {
 
                 } label: {
-                        Text("Save")
+                    Text("Save")
+                        .background(Color.blue)
+                        .foregroundColor(.white)
                 }
                 
             }
