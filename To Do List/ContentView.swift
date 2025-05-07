@@ -37,16 +37,18 @@ struct ContentView: View {
             List {
                 ForEach(toDos) {
                     toDoItem in
-                        Text(toDoItem.title)
+                    Text("\(toDoItem.isImportant ? "‼️ " : "")\(toDoItem.title)")
                 }
             }
+            .listStyle(.plain)
         }
     if showNewTask {
-        NewToDoView()
+        NewToDoView(showNewTask: $showNewTask, toDoItem: ToDoItem(title: "", isImportant: false))
         }
     }
 }
 
 #Preview {
     ContentView()
+        .modelContainer(for: ToDoItem.self, inMemory: true)
 }
